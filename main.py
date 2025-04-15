@@ -1,11 +1,16 @@
 from fastapi import FastAPI
-from router import blog_router
+from fastapi import HTTPException
+from fastapi import status
+
+from router.users import user_router
+from router.endpoint import blog_router
 from db.db_api import engine
 from db import models
 
 app = FastAPI()
 
 app.include_router(blog_router)
+app.include_router(user_router)
 
 @app.get('/')
 def index():

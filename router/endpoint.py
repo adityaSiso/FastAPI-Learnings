@@ -5,6 +5,7 @@ from fastapi import Query
 from fastapi import Body
 from fastapi import Path
 
+
 # Pydantic parser
 class LoginParser(BaseModel):
     user: str
@@ -33,7 +34,7 @@ class BlogType(Enum):
     short = 'short'
     long = 'long'
 
-@app.get('/blog/type/{type}')
+@blog_router.get('/blog/type/{type}')
 def get(type: BlogType):
     return f'You requested a {type} blog type.'
 
